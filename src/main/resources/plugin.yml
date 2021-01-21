@@ -1,0 +1,8 @@
+name: NoAdsInChat
+version: ${project.version}
+main: vn.teamgamervn.noadsinchat.NoAdsInChat
+api-version: 1.16
+prefix: NoAdsInChat
+softdepend: [ PlaceholderAPI ]
+authors: [ VinhGaming, TeamgamerVN ]
+description: Hide ads in chat

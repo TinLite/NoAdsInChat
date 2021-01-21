@@ -1,0 +1,5 @@
+Triggers:
+  - 'text:Minecraft'
+  - 'regex:[Tt].*[Ee].*[Aa].*[Mm].*[Uu].*[Pp]'
+
+ChatFormat: '<%player_name%> {chat}'

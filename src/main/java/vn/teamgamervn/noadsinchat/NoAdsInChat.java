@@ -12,12 +12,13 @@ public final class NoAdsInChat extends JavaPlugin {
         // Plugin startup logic
         Bukkit.getPluginManager().registerEvents(new ChatListner(), this);
         Config.PAPIStatus = true;
-        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") == null) {
             getLogger().warning("PlaceholderAPI is not installed. PlaceholderAPI-related functions will be disabled. Please consider install PlaceholderAPI.");
             Config.PAPIStatus = false;
         }
-            this.saveDefaultConfig();
-        Config.loadConfig(this.getConfig());
+        this.getCommand("noadsinchat").setExecutor(new Commands());
+        this.saveDefaultConfig();
+        Config.loadConfig(this);
     }
 
     @Override

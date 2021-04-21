@@ -1,5 +1,7 @@
-Triggers:
-  - 'text:Minecraft'
-  - 'regex:[Tt].*[Ee].*[Aa].*[Mm].*[Uu].*[Pp]'
+triggers: # RegEx
+  - '[Tt].*[Ee].*[Aa].*[Mm].*[Uu].*[Pp]'
 
-ChatFormat: '<%player_name%> {chat}'
+default-chat-format: '<%player_name%> {chat}' # Có hỗ trợ PlaceholderAPI.
+
+# Từ dòng này trở đi KHÔNG. ĐƯỢC. EDIT. hoặc chết.
+config-version: 1

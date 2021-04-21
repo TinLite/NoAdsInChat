@@ -1,8 +1,24 @@
 name: NoAdsInChat
 version: ${project.version}
 main: vn.teamgamervn.noadsinchat.NoAdsInChat
-api-version: 1.16
 prefix: NoAdsInChat
 softdepend: [ PlaceholderAPI ]
 authors: [ VinhGaming, TeamgamerVN ]
 description: Hide ads in chat
+commands:
+  noadsinchat:
+    aliases: naic
+    usage: /<command> [reload]
+permissions:
+  noads.admin:
+    default: op
+    description: Reload command
+  noads.bypass:
+    default: op
+    description: Bypass check
+  noads.*:
+    default: op
+    description: AIO permission
+    children:
+      noads.admin: true
+      noads.bypass: true

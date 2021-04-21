@@ -6,11 +6,12 @@ import org.bukkit.entity.Player;
 import vn.teamgamervn.noadsinchat.data.Config;
 
 public class PAPIStringBuilder {
-    public String getChat(String string, Player player)
+    public String getChat(String chat, Player player)
     {
+        String output = Config.chatFormat;
         if (Config.PAPIStatus)
-            string = PlaceholderAPI.setPlaceholders(player, string);
-        string = ChatColor.translateAlternateColorCodes('&', string);
-        return string.replace("{chat}", string);
+            output = PlaceholderAPI.setPlaceholders(player, output);
+        output = ChatColor.translateAlternateColorCodes('&', output);
+        return output.replace("{chat}", chat);
     }
 }

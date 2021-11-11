@@ -1,5 +1,5 @@
 triggers: # RegEx
   - '[Tt].*[Ee].*[Aa].*[Mm].*[Uu].*[Pp]'
-
+notify-format: "&f[&cNAID-CHAT-VIOLATION&f] %player%: %message%"
 # Từ dòng này trở đi KHÔNG. ĐƯỢC. EDIT. hoặc chết.
 config-version: 2

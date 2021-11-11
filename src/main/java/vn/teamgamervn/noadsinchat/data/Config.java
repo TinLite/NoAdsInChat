@@ -42,4 +42,8 @@ public class Config {
     public static List<String> getTriggers() {
         return config.getStringList("triggers");
     }
+
+    public static String getNotifyFormat() {
+        return config.getString("notify-format");
+    }
 }

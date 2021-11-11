@@ -3,7 +3,8 @@ package vn.teamgamervn.noadsinchat;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import vn.teamgamervn.noadsinchat.data.Config;
-import vn.teamgamervn.noadsinchat.listener.ChatListner;
+import vn.teamgamervn.noadsinchat.listener.ChatListener;
+import vn.teamgamervn.noadsinchat.listener.LoginLogoutListener;
 
 public final class NoAdsInChat extends JavaPlugin {
     private static NoAdsInChat instance;
@@ -11,7 +12,8 @@ public final class NoAdsInChat extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         instance = this;
-        Bukkit.getPluginManager().registerEvents(new ChatListner(), this);
+        Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
+        Bukkit.getPluginManager().registerEvents(new LoginLogoutListener(), this);
         Config.PAPIStatus = true;
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") == null) {
             getLogger().warning("PlaceholderAPI is not installed. PlaceholderAPI-related functions will be disabled. Please consider install PlaceholderAPI.");

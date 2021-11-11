@@ -3,6 +3,9 @@ package vn.teamgamervn.noadsinchat.data;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 public class Config {
@@ -15,6 +18,17 @@ public class Config {
     {
         plugin = p;
         config = p.getConfig();
+        if (config.getInt("config-version", -1) < 2) {
+            p.getLogger().warning("Old-config detected. Please update config.yml with new-config.yml");
+            File file = new File(p.getDataFolder(), "new-config.yml");
+            try {
+                if (file.createNewFile())
+                    Files.copy(p.getResource("config.yml"), file.toPath());
+            } catch (IOException e) {
+                p.getLogger().warning("Error occurred while trying to save new configuration file.");
+                e.printStackTrace();
+            }
+        }
         chatFormat = config.getString("default-chat-format");
     }
 

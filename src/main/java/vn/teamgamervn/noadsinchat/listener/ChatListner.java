@@ -17,8 +17,10 @@ public class ChatListner implements Listener {
         for (String s : Config.getTriggers()) {
                 if (new Checker().checkRegex(event.getMessage(), s))
                 {
-                    event.setCancelled(true);
-                    event.getPlayer().sendMessage(new PAPIStringBuilder().getChat(event.getMessage(), event.getPlayer()));
+//                    event.setCancelled(true);
+//                    event.getPlayer().sendMessage(new PAPIStringBuilder().getChat(event.getMessage(), event.getPlayer()));
+                    event.getRecipients().removeAll(Bukkit.getOnlinePlayers());
+                    event.getRecipients().add(event.getPlayer());
                     Bukkit.getLogger().log(Level.INFO, "[NoAdsInChat] Player " + event.getPlayer().getName() + ": " + event.getMessage());
                     return;
                 }

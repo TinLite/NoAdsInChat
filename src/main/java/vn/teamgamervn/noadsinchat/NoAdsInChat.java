@@ -6,10 +6,11 @@ import vn.teamgamervn.noadsinchat.data.Config;
 import vn.teamgamervn.noadsinchat.listener.ChatListner;
 
 public final class NoAdsInChat extends JavaPlugin {
-
+    private static NoAdsInChat instance;
     @Override
     public void onEnable() {
         // Plugin startup logic
+        instance = this;
         Bukkit.getPluginManager().registerEvents(new ChatListner(), this);
         Config.PAPIStatus = true;
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") == null) {
@@ -19,6 +20,10 @@ public final class NoAdsInChat extends JavaPlugin {
         this.getCommand("noadsinchat").setExecutor(new Commands());
         this.saveDefaultConfig();
         Config.loadConfig(this);
+    }
+
+    public static NoAdsInChat getInstance() {
+        return instance;
     }
 
     @Override

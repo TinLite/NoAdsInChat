@@ -9,9 +9,9 @@ import vn.teamgamervn.noadsinchat.data.Config;
 public class Commands implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eNoAdsInChat &fv1.0.0 by &cVinhGaming"));
         if (!sender.hasPermission("noads.admin"))
             return true;
+        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eNoAdsInChat &fv" + NoAdsInChat.getInstance().getDescription().getVersion() + " by &cVinhGaming"));
         if (args.length == 0) {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "[&eNoAdsInChat&f] /noads reload - Reload Plugin"));
             return true;

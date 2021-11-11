@@ -1,7 +1,5 @@
 triggers: # RegEx
   - '[Tt].*[Ee].*[Aa].*[Mm].*[Uu].*[Pp]'
 
-default-chat-format: '<%player_name%> {chat}' # Có hỗ trợ PlaceholderAPI.
-
 # Từ dòng này trở đi KHÔNG. ĐƯỢC. EDIT. hoặc chết.
-config-version: 1
+config-version: 2

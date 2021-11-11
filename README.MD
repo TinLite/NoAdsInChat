@@ -1,5 +1,6 @@
 # NoAdsInChat
-Vẫn là plugin chặn một cụm từ cố định trong chat nhưng kèm theo đó là hack não người chơi.
+Vẫn là plugin chặn một cụm từ cố định trong chat nhưng kèm theo đó là hack não người chơi.  
+Tức là chat vẫn sẽ hiển thị với người vi phạm một cách bình thường, nhưng sẽ bị ẩn đối với toàn bộ người chơi khác. Staff sẽ nhận được thông báo về vi phạm của người chơi.
 
 ## Commands
 |Lệnh|Mô tả|

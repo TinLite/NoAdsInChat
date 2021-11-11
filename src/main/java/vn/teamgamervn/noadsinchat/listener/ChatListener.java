@@ -7,7 +7,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import vn.teamgamervn.noadsinchat.data.Config;
 import vn.teamgamervn.noadsinchat.data.NotifySetting;
 import vn.teamgamervn.noadsinchat.util.Checker;
-import vn.teamgamervn.noadsinchat.util.PAPIStringBuilder;
 
 import java.util.logging.Level;
 
@@ -18,8 +17,6 @@ public class ChatListener implements Listener {
         for (String s : Config.getTriggers()) {
                 if (new Checker().checkRegex(event.getMessage(), s))
                 {
-//                    event.setCancelled(true);
-//                    event.getPlayer().sendMessage(new PAPIStringBuilder().getChat(event.getMessage(), event.getPlayer()));
                     event.getRecipients().removeAll(Bukkit.getOnlinePlayers());
                     event.getRecipients().add(event.getPlayer());
                     Bukkit.getLogger().log(Level.INFO, "[NoAdsInChat] Player " + event.getPlayer().getName() + ": " + event.getMessage());

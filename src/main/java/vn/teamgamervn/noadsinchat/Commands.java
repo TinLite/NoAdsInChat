@@ -18,8 +18,10 @@ public class Commands implements CommandExecutor {
             sendHelp(sender);
             return true;
         }
-        if (args[0].equalsIgnoreCase("reload") && sender.hasPermission("noads.admin"))
+        if (args[0].equalsIgnoreCase("reload") && sender.hasPermission("noads.admin")) {
             Config.reloadConfig();
+            return true;
+        }
         if (args[0].equalsIgnoreCase("notify") && sender.hasPermission("noads.notify")) {
             if (args.length == 1)
                 return sendHelp(sender);
@@ -50,7 +52,7 @@ public class Commands implements CommandExecutor {
                     return sendHelp(sender);
             }
         }
-        return true;
+        return sendHelp(sender);
     }
 
     public boolean sendHelp(CommandSender sender) {

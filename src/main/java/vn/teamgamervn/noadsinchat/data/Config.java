@@ -55,4 +55,8 @@ public class Config {
     public static boolean isSpamEnabled() {
         return config.getBoolean("SpamDetection.Enabled");
     }
+
+    public static boolean isIPBlock() {
+        return config.getBoolean("GlobalSettings.IPWideBlock");
+    }
 }

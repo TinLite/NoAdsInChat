@@ -1,6 +1,7 @@
 package vn.teamgamervn.noadsinchat.listener;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -9,6 +10,9 @@ import vn.teamgamervn.noadsinchat.data.Config;
 import vn.teamgamervn.noadsinchat.data.NotifySetting;
 import vn.teamgamervn.noadsinchat.util.Checker;
 
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.util.Set;
 import java.util.logging.Level;
 
 public class ChatListener implements Listener {
@@ -32,7 +36,16 @@ public class ChatListener implements Listener {
     }
 
     public void cancel(AsyncPlayerChatEvent event) {
+        Set<Player> recipients = event.getRecipients();
         event.getRecipients().removeAll(Bukkit.getOnlinePlayers());
+        if (Config.isIPBlock()) {
+            InetAddress address = event.getPlayer().getAddress().getAddress();
+            for (Player player : recipients)
+                if (player.getAddress().getAddress().equals(address))
+                    event.getRecipients().add(player);
+        } else {
+            event.getRecipients().add(event.getPlayer());
+        }
         event.getRecipients().add(event.getPlayer());
         Bukkit.getLogger().log(Level.INFO, "[NoAdsInChat] Player " + event.getPlayer().getName() + ": " + event.getMessage());
         NotifySetting.sendNotification(event.getPlayer(), event.getMessage());

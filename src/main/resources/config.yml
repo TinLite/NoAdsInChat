@@ -1,3 +1,10 @@
+# Các cài đặt tuỳ chỉnh cách plugin hoạt động. Thường thì cài đặt ở đây sẽ
+# dùng chung cho toàn bộ detection ở dưới
+GlobalSettings:
+  # Cái này sẽ sneaky hơn tí, khi bị block thì vẫn sẽ gửi tin nhắn đến người
+  # chơi có cùng IP với người vi phạm, còn những người chơi khác IP thì vẫn
+  # block
+  IPWideBlock: false
 BlacklistDetection:
   triggers: # RegEx
     - '[Tt].*[Ee].*[Aa].*[Mm].*[Uu].*[Pp]'

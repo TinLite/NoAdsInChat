@@ -1,5 +1,16 @@
-triggers: # RegEx
-  - '[Tt].*[Ee].*[Aa].*[Mm].*[Uu].*[Pp]'
-notify-format: "&f[&cNAID-CHAT-VIOLATION&f] %player%: %message%"
+BlacklistDetection:
+  triggers: # RegEx
+    - '[Tt].*[Ee].*[Aa].*[Mm].*[Uu].*[Pp]'
+
+# Tính năng: Spam detection
+SpamDetection:
+  # Số lượng tin nhắn tối đa
+  Count: 5
+  # Trong khoảng thời gian bao nhiêu mili-giây?
+  Time: 5000 # là 5 giây.
+
+Locale:
+  notify-format: "&f[&cNAID-CHAT-VIOLATION&f] %player%: %message%"
+
 # Từ dòng này trở đi KHÔNG. ĐƯỢC. EDIT. hoặc chết.
-config-version: 2
+config-version: 3

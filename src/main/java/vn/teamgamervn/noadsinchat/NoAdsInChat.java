@@ -3,15 +3,18 @@ package vn.teamgamervn.noadsinchat;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import vn.teamgamervn.noadsinchat.data.Config;
+import vn.teamgamervn.noadsinchat.data.PlayerManager;
 import vn.teamgamervn.noadsinchat.listener.ChatListener;
 import vn.teamgamervn.noadsinchat.listener.LoginLogoutListener;
 
 public final class NoAdsInChat extends JavaPlugin {
     private static NoAdsInChat instance;
+    private static PlayerManager playerManager;
     @Override
     public void onEnable() {
         // Plugin startup logic
         instance = this;
+        playerManager = new PlayerManager();
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
         Bukkit.getPluginManager().registerEvents(new LoginLogoutListener(), this);
         Config.PAPIStatus = true;
@@ -26,6 +29,10 @@ public final class NoAdsInChat extends JavaPlugin {
 
     public static NoAdsInChat getInstance() {
         return instance;
+    }
+
+    public static PlayerManager getPlayerManager() {
+        return playerManager;
     }
 
     @Override

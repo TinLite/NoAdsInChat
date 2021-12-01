@@ -6,23 +6,25 @@ import org.bukkit.plugin.Plugin;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 public class Config {
     private static FileConfiguration config;
     public static boolean PAPIStatus;
     private static Plugin plugin;
+    private static final int VERSION = 3;
 
     public static void loadConfig(Plugin p)
     {
         plugin = p;
         config = p.getConfig();
-        if (config.getInt("config-version", -1) < 2) {
+        if (config.getInt("config-version", -1) < VERSION) {
             p.getLogger().warning("Old-config detected. Please update config.yml with new-config.yml");
             File file = new File(p.getDataFolder(), "new-config.yml");
             try {
                 if (file.createNewFile())
-                    Files.copy(p.getResource("config.yml"), file.toPath());
+                    Files.copy(p.getResource("config.yml"), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
                 p.getLogger().warning("Error occurred while trying to save new configuration file.");
                 e.printStackTrace();

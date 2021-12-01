@@ -20,7 +20,7 @@ public class PlayerManager {
         data.add(System.currentTimeMillis());
         if (data.size() > Config.getSpamCount()) {
             data.remove(0);
-            return data.get(data.size() - 1) - data.get(0) > Config.getSpamTime();
+            return data.get(data.size() - 1) - data.get(0) < Config.getSpamTime();
         }
         return false;
     }

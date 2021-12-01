@@ -4,6 +4,8 @@ BlacklistDetection:
 
 # Tính năng: Spam detection
 SpamDetection:
+  # Bật tính năng này?
+  Enabled: true
   # Số lượng tin nhắn tối đa
   Count: 5
   # Trong khoảng thời gian bao nhiêu mili-giây?

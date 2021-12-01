@@ -51,4 +51,8 @@ public class Config {
     public static int getSpamTime() {
         return config.getInt("SpamDetection.Time");
     }
+
+    public static boolean isSpamEnabled() {
+        return config.getBoolean("SpamDetection.Enabled");
+    }
 }

@@ -24,6 +24,7 @@ public class ChatListener implements Listener {
 
     @EventHandler
     public void spamDetect(AsyncPlayerChatEvent event) {
+        if (!Config.isSpamEnabled()) return;
         if (event.getPlayer().hasPermission("noads.bypass")) return;
         if (NoAdsInChat.getPlayerManager().add(event.getPlayer())) {
             cancel(event);

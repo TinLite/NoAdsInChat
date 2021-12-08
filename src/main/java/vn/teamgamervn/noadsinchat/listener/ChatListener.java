@@ -8,10 +8,8 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import vn.teamgamervn.noadsinchat.NoAdsInChat;
 import vn.teamgamervn.noadsinchat.data.Config;
 import vn.teamgamervn.noadsinchat.data.NotifySetting;
-import vn.teamgamervn.noadsinchat.util.Checker;
 
 import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import java.util.Set;
 import java.util.logging.Level;
 
@@ -19,11 +17,8 @@ public class ChatListener implements Listener {
     @EventHandler
     public void blacklistDetect(AsyncPlayerChatEvent event) {
         if (event.getPlayer().hasPermission("noads.bypass")) return;
-        for (String s : Config.getTriggers())
-            if (new Checker().checkRegex(event.getMessage(), s)) {
-                cancel(event);
-                return;
-            }
+        if (NoAdsInChat.getChecker().checkRegexMessage(event.getMessage()))
+            cancel(event);
     }
 
     @EventHandler

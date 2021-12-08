@@ -1,7 +1,7 @@
 package vn.teamgamervn.noadsinchat.data;
 
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.Plugin;
+import vn.teamgamervn.noadsinchat.NoAdsInChat;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,13 +11,10 @@ import java.util.List;
 
 public class Config {
     private static FileConfiguration config;
-    public static boolean PAPIStatus;
-    private static Plugin plugin;
     private static final int VERSION = 4;
 
-    public static void loadConfig(Plugin p)
-    {
-        plugin = p;
+    public static void loadConfig() {
+        NoAdsInChat p = NoAdsInChat.getInstance();
         config = p.getConfig();
         if (config.getInt("config-version", -1) < VERSION) {
             p.getLogger().warning("Old-config detected. Please update config.yml with new-config.yml");
@@ -34,8 +31,10 @@ public class Config {
 
     public static void reloadConfig()
     {
+        NoAdsInChat plugin = NoAdsInChat.getInstance();
         plugin.reloadConfig();
         config = plugin.getConfig();
+        NoAdsInChat.getChecker().loadChecker();
     }
 
     public static List<String> getTriggers() {

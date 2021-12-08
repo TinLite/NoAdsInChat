@@ -1,21 +1,30 @@
 package vn.teamgamervn.noadsinchat.util;
 
+import vn.teamgamervn.noadsinchat.data.Config;
+
 import java.util.HashSet;
-import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Checker {
-//    HashSet<Pattern> patterns;
-//    public Checker(List<String> patternList) {
-//        patterns = new HashSet<>();
-//        for (String i : patternList) {
-//            patterns.add(Pattern.compile(i));
-//        }
-//    }
-    public boolean checkRegex(String text, String regEx) {
-        Pattern pattern = Pattern.compile(regEx);
-        Matcher matcher = pattern.matcher(text);
-        return matcher.find();
+    HashSet<Pattern> patterns;
+
+    public Checker() {
+        patterns = new HashSet<>();
+        loadChecker();
+    }
+
+    public void loadChecker() {
+        patterns.clear();
+        for (String i : Config.getTriggers()) {
+            patterns.add(Pattern.compile(i));
+        }
+    }
+
+    public boolean checkRegexMessage(String message) {
+        for (Pattern pattern : patterns) {
+            if (pattern.matcher(message).find())
+                return true;
+        }
+        return false;
     }
 }

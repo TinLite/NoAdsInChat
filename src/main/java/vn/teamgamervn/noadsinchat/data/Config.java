@@ -1,6 +1,8 @@
 package vn.teamgamervn.noadsinchat.data;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import vn.teamgamervn.noadsinchat.NoAdsInChat;
 
 import java.io.File;
@@ -29,11 +31,16 @@ public class Config {
         }
     }
 
-    public static void reloadConfig()
-    {
+    public static void reloadConfig() {
         NoAdsInChat plugin = NoAdsInChat.getInstance();
         plugin.reloadConfig();
         config = plugin.getConfig();
+        if (Config.isSpamEnabled()) {
+            NoAdsInChat.setPlayerManager(new PlayerManager());
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                NoAdsInChat.getPlayerManager().initPlayer(player);
+            }
+        }
         NoAdsInChat.getChecker().loadChecker();
     }
 

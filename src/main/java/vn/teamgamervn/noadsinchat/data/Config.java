@@ -13,7 +13,7 @@ public class Config {
     private static FileConfiguration config;
     public static boolean PAPIStatus;
     private static Plugin plugin;
-    private static final int VERSION = 3;
+    private static final int VERSION = 4;
 
     public static void loadConfig(Plugin p)
     {

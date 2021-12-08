@@ -1,6 +1,7 @@
 package vn.teamgamervn.noadsinchat;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import vn.teamgamervn.noadsinchat.data.Config;
 import vn.teamgamervn.noadsinchat.data.PlayerManager;
@@ -14,7 +15,11 @@ public final class NoAdsInChat extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         instance = this;
+        Config.loadConfig(this);
         playerManager = new PlayerManager();
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            playerManager.initPlayer(player);
+        }
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
         Bukkit.getPluginManager().registerEvents(new LoginLogoutListener(), this);
         Config.PAPIStatus = true;
@@ -24,7 +29,6 @@ public final class NoAdsInChat extends JavaPlugin {
         }
         this.getCommand("noadsinchat").setExecutor(new Commands());
         this.saveDefaultConfig();
-        Config.loadConfig(this);
     }
 
     public static NoAdsInChat getInstance() {

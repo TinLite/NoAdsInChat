@@ -16,9 +16,11 @@ public final class NoAdsInChat extends JavaPlugin {
         // Plugin startup logic
         instance = this;
         Config.loadConfig(this);
-        playerManager = new PlayerManager();
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            playerManager.initPlayer(player);
+        if (Config.isSpamEnabled()) {
+            playerManager = new PlayerManager();
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                playerManager.initPlayer(player);
+            }
         }
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
         Bukkit.getPluginManager().registerEvents(new LoginLogoutListener(), this);

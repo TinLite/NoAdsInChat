@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Config {
     private static FileConfiguration config;
-    private static final int VERSION = 4;
+    private static final int VERSION = 3;
 
     public static void loadConfig() {
         NoAdsInChat p = NoAdsInChat.getInstance();
@@ -58,6 +58,10 @@ public class Config {
 
     public static int getSpamTime() {
         return config.getInt("SpamDetection.Time");
+    }
+
+    public static boolean isRegexEnabled() {
+        return config.getBoolean("BlacklistDetection.enableRegex", true);
     }
 
     public static boolean isSpamEnabled() {

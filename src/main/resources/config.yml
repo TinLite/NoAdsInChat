@@ -8,8 +8,8 @@ GlobalSettings:
 BlacklistDetection:
   enableRegex: true
   triggers: # RegEx
-    - 't.*e.*a.*m.*u.*p/i' # /i là để regex này case insensitivity
-    - 'miniflex?(jav)/i'
+    - 't.*e.*a.*m.*u.*p'
+    - 'miniflex?(jav)'
 
 # Tính năng: Spam detection
 SpamDetection:

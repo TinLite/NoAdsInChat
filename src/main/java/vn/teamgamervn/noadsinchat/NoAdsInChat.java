@@ -33,12 +33,12 @@ public final class NoAdsInChat extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         instance = this;
+        this.saveDefaultConfig();
         Config.loadConfig();
         checker = new Checker();
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
         Bukkit.getPluginManager().registerEvents(new LoginLogoutListener(), this);
         this.getCommand("noadsinchat").setExecutor(new Commands());
-        this.saveDefaultConfig();
     }
 
     @Override

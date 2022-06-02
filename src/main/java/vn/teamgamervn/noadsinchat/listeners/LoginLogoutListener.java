@@ -1,4 +1,4 @@
-package vn.teamgamervn.noadsinchat.listener;
+package vn.teamgamervn.noadsinchat.listeners;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

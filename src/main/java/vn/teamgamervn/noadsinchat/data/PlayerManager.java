@@ -15,6 +15,7 @@ public class PlayerManager {
     public void removePlayer(Player player) {
         playerData.remove(player.getUniqueId());
     }
+
     public boolean add(Player player) {
         List<Long> data = playerData.get(player.getUniqueId());
         data.add(System.currentTimeMillis());
@@ -23,5 +24,9 @@ public class PlayerManager {
             return data.get(data.size() - 1) - data.get(0) < Config.getSpamTime();
         }
         return false;
+    }
+
+    public void removeAllPlayer() {
+        playerData.clear();
     }
 }

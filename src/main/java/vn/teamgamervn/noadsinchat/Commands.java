@@ -20,6 +20,7 @@ public class Commands implements CommandExecutor {
         }
         if (args[0].equalsIgnoreCase("reload") && sender.hasPermission("noads.admin")) {
             Config.reloadConfig();
+            sender.sendMessage(ChatColor.GREEN + "Configuration reloaded.");
             return true;
         }
         if (args[0].equalsIgnoreCase("notify") && sender.hasPermission("noads.notify")) {

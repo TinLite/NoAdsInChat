@@ -4,9 +4,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import vn.teamgamervn.noadsinchat.data.Config;
 import vn.teamgamervn.noadsinchat.data.PlayerManager;
-import vn.teamgamervn.noadsinchat.listener.ChatListener;
-import vn.teamgamervn.noadsinchat.listener.LoginLogoutListener;
-import vn.teamgamervn.noadsinchat.util.Checker;
+import vn.teamgamervn.noadsinchat.listeners.ChatListener;
+import vn.teamgamervn.noadsinchat.listeners.LoginLogoutListener;
+import vn.teamgamervn.noadsinchat.tasks.Checker;
 
 public final class NoAdsInChat extends JavaPlugin {
     private static NoAdsInChat instance;

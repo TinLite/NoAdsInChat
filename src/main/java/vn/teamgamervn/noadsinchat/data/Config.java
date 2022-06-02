@@ -29,18 +29,26 @@ public class Config {
                 e.printStackTrace();
             }
         }
+        loadPlayers();
+    }
+
+    private static void loadPlayers() {
+        if (Config.isSpamEnabled()) {
+            if (NoAdsInChat.getPlayerManager() == null)
+                NoAdsInChat.setPlayerManager(new PlayerManager());
+            else
+                NoAdsInChat.getPlayerManager().removeAllPlayer();
+            for (Player player : Bukkit.getOnlinePlayers()) {
+                NoAdsInChat.getPlayerManager().initPlayer(player);
+            }
+        }
     }
 
     public static void reloadConfig() {
         NoAdsInChat plugin = NoAdsInChat.getInstance();
         plugin.reloadConfig();
         config = plugin.getConfig();
-        if (Config.isSpamEnabled()) {
-            NoAdsInChat.setPlayerManager(new PlayerManager());
-            for (Player player : Bukkit.getOnlinePlayers()) {
-                NoAdsInChat.getPlayerManager().initPlayer(player);
-            }
-        }
+        loadPlayers();
         NoAdsInChat.getChecker().loadChecker();
     }
 

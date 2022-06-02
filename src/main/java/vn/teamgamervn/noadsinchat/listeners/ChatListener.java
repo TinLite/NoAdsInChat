@@ -1,4 +1,4 @@
-package vn.teamgamervn.noadsinchat.listener;
+package vn.teamgamervn.noadsinchat.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -17,7 +17,7 @@ public class ChatListener implements Listener {
     @EventHandler
     public void blacklistDetect(AsyncPlayerChatEvent event) {
         if (event.getPlayer().hasPermission("noads.bypass")) return;
-        if (NoAdsInChat.getChecker().checkRegexMessage(event.getMessage()))
+        if (NoAdsInChat.getChecker().checkMessage(event.getMessage()))
             cancel(event);
     }
 

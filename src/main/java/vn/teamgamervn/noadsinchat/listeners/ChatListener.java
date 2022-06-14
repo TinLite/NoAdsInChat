@@ -6,6 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import vn.teamgamervn.noadsinchat.NoAdsInChat;
+import vn.teamgamervn.noadsinchat.api.events.ChatBlockEvent;
 import vn.teamgamervn.noadsinchat.data.Config;
 import vn.teamgamervn.noadsinchat.data.NotifySetting;
 
@@ -31,6 +32,12 @@ public class ChatListener implements Listener {
     }
 
     public void cancel(AsyncPlayerChatEvent event) {
+        // Call ChatBlockEvent
+        ChatBlockEvent cbEvent = new ChatBlockEvent(event.getPlayer(), event.getMessage());
+        Bukkit.getPluginManager().callEvent(cbEvent);
+        if (event.isCancelled()) // If the blocking event is cancel, we will not block the message
+            return;
+
         Set<Player> recipients = event.getRecipients();
         event.getRecipients().removeAll(Bukkit.getOnlinePlayers());
         if (Config.isIPBlock()) {

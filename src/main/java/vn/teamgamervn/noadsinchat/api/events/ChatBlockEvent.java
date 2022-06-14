@@ -12,6 +12,7 @@ public class ChatBlockEvent extends Event implements Cancellable {
     boolean isCancelled;
 
     public ChatBlockEvent(Player player, String chat) {
+        super(true);
         this.player = player;
         this.chat = chat;
         this.isCancelled = false;

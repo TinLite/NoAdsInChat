@@ -3,7 +3,7 @@ version: ${project.version}
 main: vn.teamgamervn.noadsinchat.NoAdsInChat
 prefix: NoAdsInChat
 api-version: 1.13
-softdepend: [ PlaceholderAPI ]
+softdepend: [ DiscordSRV ]
 authors: [ VinhGaming, TeamgamerVN ]
 description: Hide ads in chat
 commands:

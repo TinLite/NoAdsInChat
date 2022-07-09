@@ -1,5 +1,3 @@
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=TinLite_NoAdsInChat&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=TinLite_NoAdsInChat)
-
 # NoAdsInChat
 Vẫn là plugin chặn một cụm từ cố định trong chat nhưng kèm theo đó là hack não người chơi.  
 Tức là chat vẫn sẽ hiển thị với người vi phạm một cách bình thường, nhưng sẽ bị ẩn đối với toàn bộ người chơi khác. Staff sẽ nhận được thông báo về vi phạm của người chơi.

@@ -35,7 +35,7 @@ public class ChatListener implements Listener {
         // Call ChatBlockEvent
         ChatBlockEvent cbEvent = new ChatBlockEvent(event.getPlayer(), event.getMessage());
         Bukkit.getPluginManager().callEvent(cbEvent);
-        if (event.isCancelled()) // If the blocking event is cancel, we will not block the message
+        if (event.isCancelled()) // If the blocking event is cancelled, we will not block the message
             return;
 
         Set<Player> recipients = event.getRecipients();
@@ -49,7 +49,7 @@ public class ChatListener implements Listener {
             event.getRecipients().add(event.getPlayer());
         }
         event.getRecipients().add(event.getPlayer());
-        Bukkit.getLogger().log(Level.INFO, "[NoAdsInChat] Player " + event.getPlayer().getName() + ": " + event.getMessage());
+        Bukkit.getLogger().info("Player " + event.getPlayer().getName() + ": " + event.getMessage());
         NotifySetting.sendNotification(event.getPlayer(), event.getMessage());
     }
 }

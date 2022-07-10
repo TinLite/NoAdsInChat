@@ -19,28 +19,16 @@ public class DiscordSRVHook implements Listener {
         blockedPlayerSet = new HashSet<>();
     }
 
-    public void addBlock(UUID uuid) {
-        blockedPlayerSet.add(uuid);
+    private void addBlock(Player player) {
+        blockedPlayerSet.add(player.getUniqueId());
     }
 
-    public void addBlock(Player player) {
-        addBlock(player.getUniqueId());
+    private void removeBlock(Player player) {
+        blockedPlayerSet.remove(player.getUniqueId());
     }
 
-    public void removeBlock(UUID uuid) {
-        blockedPlayerSet.remove(uuid);
-    }
-
-    public void removeBlock(Player player) {
-        removeBlock(player.getUniqueId());
-    }
-
-    public boolean isBlocked(UUID uuid) {
-        return blockedPlayerSet.contains(uuid);
-    }
-
-    public boolean isBlocked(Player player) {
-        return isBlocked(player.getUniqueId());
+    private boolean isBlocked(Player player) {
+        return blockedPlayerSet.contains(player.getUniqueId());
     }
 
     @EventHandler

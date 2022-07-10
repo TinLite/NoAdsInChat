@@ -19,14 +19,13 @@ public class Config {
         NoAdsInChat p = NoAdsInChat.getInstance();
         config = p.getConfig();
         if (config.getInt("config-version", -1) < VERSION) {
-            p.getLogger().warning("Old-config detected. Please update config.yml with new-config.yml");
+            p.getLogger().warning("Old config file detected. Please update config.yml with new-config.yml");
             File file = new File(p.getDataFolder(), "new-config.yml");
             try {
                 if (file.createNewFile())
                     Files.copy(p.getResource("config.yml"), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
-                p.getLogger().warning("Error occurred while trying to save new configuration file.");
-                e.printStackTrace();
+                p.getLogger().warning("Error occurred while trying to save new configuration file: " + e.getMessage());
             }
         }
         loadPlayers();

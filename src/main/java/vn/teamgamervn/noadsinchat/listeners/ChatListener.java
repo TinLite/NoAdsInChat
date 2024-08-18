@@ -9,6 +9,7 @@ import vn.teamgamervn.noadsinchat.NoAdsInChat;
 import vn.teamgamervn.noadsinchat.api.events.ChatBlockEvent;
 import vn.teamgamervn.noadsinchat.data.Config;
 import vn.teamgamervn.noadsinchat.data.NotifySetting;
+import vn.teamgamervn.noadsinchat.tasks.Checker;
 
 import java.net.InetAddress;
 import java.util.Set;
@@ -18,7 +19,7 @@ public class ChatListener implements Listener {
     @EventHandler
     public void blacklistDetect(AsyncPlayerChatEvent event) {
         if (event.getPlayer().hasPermission("noads.bypass")) return;
-        if (NoAdsInChat.getChecker().checkMessage(event.getMessage()))
+        if (Checker.getChecker().checkMessage(event.getMessage()))
             cancel(event);
     }
 

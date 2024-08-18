@@ -43,11 +43,11 @@ public class Commands implements CommandExecutor {
             switch (args[1].toLowerCase(Locale.ROOT)) {
                 case "on":
                     NotifySetting.addNotify(target);
-                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aNAID Notification: &e&lON"));
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aNAID Notification: &a&lON"));
                     return true;
                 case "off":
                     NotifySetting.removeNotify(target);
-                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aNAID Notification: &e&lOFF"));
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aNAID Notification: &c&lOFF"));
                     return true;
                 default:
                     return sendHelp(sender);
@@ -57,7 +57,7 @@ public class Commands implements CommandExecutor {
     }
 
     public boolean sendHelp(CommandSender sender) {
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eNoAdsInChat &fv" + NoAdsInChat.getInstance().getDescription().getVersion() + " by &cVinhGaming"));
+        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&eNoAdsInChat &fv" + NoAdsInChat.getPlugin(NoAdsInChat.class).getDescription().getVersion() + " by &cVinhGaming"));
         if (sender.hasPermission("noads.admin"))
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "[&eNoAdsInChat&f] /noads reload - Reload Plugin"));
         if (sender.hasPermission("noads.notify"))

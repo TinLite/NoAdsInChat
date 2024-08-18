@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.UUID;
 
 public class DiscordSRVHook implements Listener {
-    // Thanks DiscordSRV for having yet another event system that works exactly like Bukkit one although it could only work on Bukkit. Love you <3
+    // Thanks DiscordSRV for having yet another event system that works exactly like Bukkit one, although it could only work on Bukkit. Love you <3
     private final HashSet<UUID> blockedPlayerSet;
 
     public DiscordSRVHook() {

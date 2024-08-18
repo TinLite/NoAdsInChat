@@ -8,10 +8,18 @@ import java.util.regex.Pattern;
 
 public class Checker {
     HashSet<Pattern> patterns;
+    private static Checker instance;
 
-    public Checker() {
+    private Checker() {
         patterns = new HashSet<>();
         loadChecker();
+    }
+
+    public static Checker getChecker() {
+        if (instance == null) {
+            instance = new Checker();
+        }
+        return instance;
     }
 
     public void loadChecker() {

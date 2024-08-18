@@ -10,17 +10,7 @@ import vn.teamgamervn.noadsinchat.listeners.LoginLogoutListener;
 import vn.teamgamervn.noadsinchat.tasks.Checker;
 
 public final class NoAdsInChat extends JavaPlugin {
-    private static NoAdsInChat instance;
     private static PlayerManager playerManager;
-    private static Checker checker;
-
-    public static Checker getChecker() {
-        return checker;
-    }
-
-    public static NoAdsInChat getInstance() {
-        return instance;
-    }
 
     public static PlayerManager getPlayerManager() {
         return playerManager;
@@ -33,10 +23,9 @@ public final class NoAdsInChat extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        instance = this;
         this.saveDefaultConfig();
         Config.loadConfig();
-        checker = new Checker();
+        Checker.getChecker(); // This will load checker
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
         Bukkit.getPluginManager().registerEvents(new LoginLogoutListener(), this);
 
@@ -49,10 +38,5 @@ public final class NoAdsInChat extends JavaPlugin {
         }
 
         this.getCommand("noadsinchat").setExecutor(new Commands());
-    }
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
     }
 }

@@ -13,7 +13,6 @@ import vn.teamgamervn.noadsinchat.tasks.Checker;
 
 import java.net.InetAddress;
 import java.util.Set;
-import java.util.logging.Level;
 
 public class ChatListener implements Listener {
     @EventHandler
